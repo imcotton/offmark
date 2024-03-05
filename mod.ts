@@ -1,4 +1,4 @@
-export { OffmarkStream } from './src/offmark.ts';
+export { OffmarkStream, pipe } from './src/offmark.ts';
 
 
 
