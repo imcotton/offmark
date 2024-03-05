@@ -1,0 +1,12 @@
+{
+  "$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
+  "lock": false,
+  "name": "@imcotton/offmark",
+  "version": "0.1.0",
+  "exports": "./mod.ts",
+  "publish": {
+    "exclude": [
+      "deno.lock"
+    ]
+  }
+}
