@@ -16,8 +16,8 @@ export class OffmarkStream extends TransformStream<string, string> {
 
     constructor ({
 
-        indent = (str: string) => str.startsWith(INDENT),
-        toggle = (str: string) => str.startsWith(TOGGLE),
+            indent = (str: string) => str.startsWith(INDENT),
+            toggle = (str: string) => str.startsWith(TOGGLE),
 
     } = {}) {
 
