@@ -2,14 +2,14 @@
 
 support indent code blocks
 
-    const a = 1;
-    const b = 2;
+    const a: number = 1;
+    const b: 2 = 2;
 
 also support tagging code blocks
 
 ```
-const c = 3;
-const d = 4;
+const c = 3 as const;
+const d = 4 as 4;
 ```
 
 results:
