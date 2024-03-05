@@ -28,4 +28,12 @@ jobs:
       - name: Run tests
         run: |-
           deno test -A --quiet --coverage
+          deno coverage --lcov --output=cov.lcov
           deno coverage
+
+      - name: Run codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./cov.lcov
+          token: ${{ secrets.CODECOV_TOKEN }}
+
