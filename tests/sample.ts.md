@@ -4,6 +4,7 @@ support indent code blocks
 
     const a: number = 1;
     const b: 2 = 2;
+       // ^?
 
 also support tagging code blocks
 
