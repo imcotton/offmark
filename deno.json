@@ -6,6 +6,7 @@
   "exports": "./mod.ts",
   "publish": {
     "exclude": [
+      "./tests",
       "deno.lock"
     ]
   }
