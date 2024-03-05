@@ -1,0 +1,31 @@
+name: Checking
+
+on: push
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Run linter
+        run: deno lint
+
+      - name: Run sanity check
+        run: |-
+          [[ "$(cat tests/sample.ts.md | deno run mod.ts | deno run -)" == "10" ]] && echo ok
+
+      - name: Run tests
+        run: |-
+          deno test -A --quiet --coverage
+          deno coverage
