@@ -20,6 +20,7 @@ Deno.test('pipe on sample.ts.md', async function () {
 
     ast.assertStringIncludes(txt, 'number');
     ast.assertStringIncludes(txt, 'as const');
+    ast.assertStringIncludes(txt, '   // ^?');
 
     ast.assertNotMatch(txt, /Literate/);
     ast.assertNotMatch(txt, /Programming/);
