@@ -52,14 +52,13 @@ export class OffmarkStream extends TransformStream<string, string> {
 
 
 
-export async function main (
+export function pipe (
 
         readable: ReadableStream<Uint8Array>,
-        writable: WritableStream<Uint8Array>,
 
-): Promise<void> {
+): ReadableStream<Uint8Array> {
 
-    await readable
+    return readable
         .pipeThrough(new TextDecoderStream())
         .pipeThrough(new TextLineStream())
         .pipeThrough(new OffmarkStream())
@@ -69,8 +68,22 @@ export async function main (
             },
         }))
         .pipeThrough(new TextEncoderStream())
-        .pipeTo(writable)
     ;
+
+}
+
+
+
+
+
+export async function main (
+
+        readable: ReadableStream<Uint8Array>,
+        writable: WritableStream<Uint8Array>,
+
+): Promise<void> {
+
+    await pipe(readable).pipeTo(writable);
 
 }
 
