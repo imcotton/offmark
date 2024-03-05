@@ -16,8 +16,12 @@ export class OffmarkStream extends TransformStream<string, string> {
 
     constructor ({
 
-            indent = (str: string) => str.startsWith(INDENT),
             toggle = (str: string) => str.startsWith(TOGGLE),
+
+            indent = {
+                check: (str: string) => str.startsWith(INDENT),
+                remove: (str: string) => str.slice(INDENT.length),
+            },
 
     } = {}) {
 
@@ -36,8 +40,8 @@ export class OffmarkStream extends TransformStream<string, string> {
                     return ctrl.enqueue(data);
                 }
 
-                if (indent(data)) {
-                    return ctrl.enqueue(data.trimStart());
+                if (indent.check(data)) {
+                    return ctrl.enqueue(indent.remove(data));
                 }
 
             },
