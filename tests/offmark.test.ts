@@ -38,21 +38,17 @@ Deno.test('main', async function () {
 
         main(ReadableStream.from([]), new WritableStream()),
 
-        ast.assertRejects(async function () {
+        ast.assertRejects(() => main(
 
-            await main(
+            new ReadableStream({
+                pull () {
+                    throw new Error('wrong');
+                },
+            }),
 
-                new ReadableStream({
-                    pull () {
-                        throw new Error('wrong');
-                    }
-                }),
+            new WritableStream(),
 
-                new WritableStream(),
-
-            );
-
-        }),
+        )),
 
     ]);
 
