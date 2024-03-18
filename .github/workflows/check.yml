@@ -23,7 +23,7 @@ jobs:
 
       - name: Run sanity check
         run: |-
-          [[ "$(cat tests/sample.ts.md | deno run mod.ts | deno run -)" == "10" ]] && echo ok
+          [[ "$(deno run mod.ts < tests/sample.ts.md | deno run -)" == "10" ]] && echo ok
 
       - name: Run tests
         run: |-
