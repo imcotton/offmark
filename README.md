@@ -1,4 +1,4 @@
-[![](https://jsr.io/badges/@imcotton/offmark)](https://jsr.io/@imcotton/offmark)
+[![jsr](https://jsr.io/badges/@imcotton/offmark)](https://jsr.io/@imcotton/offmark)
 [![codecov](https://codecov.io/gh/imcotton/offmark/graph/badge.svg)](https://codecov.io/gh/imcotton/offmark)
 
 `jsr:@imcotton/offmark`
