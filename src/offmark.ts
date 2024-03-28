@@ -1,4 +1,4 @@
-import { TextLineStream } from 'jsr:@std/streams@^0.218.2/text_line_stream';
+import { TextLineStream } from 'jsr:@std/streams@~0.221.0/text-line-stream';
 
 
 
