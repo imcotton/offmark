@@ -4,9 +4,10 @@ import { TextLineStream } from 'jsr:@std/streams@~0.221.0/text-line-stream';
 
 
 
-const INDENT = ' '.repeat(4);
-
 const TOGGLE = '`'.repeat(3);
+
+const INDENT_LEN = 4;
+const INDENT = ' '.repeat(INDENT_LEN);
 
 
 
@@ -20,7 +21,7 @@ export class OffmarkStream extends TransformStream<string, string> {
 
             indent = {
                 check: (str: string) => str.startsWith(INDENT),
-                remove: (str: string) => str.slice(INDENT.length),
+                remove: (str: string) => str.slice(INDENT_LEN),
             },
 
     } = {}) {
