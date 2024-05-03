@@ -7,7 +7,6 @@
   "publish": {
     "exclude": [
       "./.github",
-      "./tests",
       ".editorconfig",
       "deno.lock"
     ]
