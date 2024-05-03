@@ -69,7 +69,7 @@ export function pipe (
         .pipeThrough(new OffmarkStream())
         .pipeThrough(new TransformStream({
             transform (data, ctrl) {
-                ctrl.enqueue(data.concat('\n'))
+                ctrl.enqueue(data.concat('\n'));
             },
         }))
         .pipeThrough(new TextEncoderStream())
