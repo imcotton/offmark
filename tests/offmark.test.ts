@@ -6,7 +6,7 @@ import {
     main,
     pipe,
 
-} from '../src/offmark.ts';
+} from '../offmark.ts';
 
 
 
