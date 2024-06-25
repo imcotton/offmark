@@ -1,4 +1,4 @@
-export { OffmarkStream, pipe } from './src/offmark.ts';
+export { OffmarkStream, pipe } from './offmark.ts';
 
 
 
@@ -6,7 +6,7 @@ export { OffmarkStream, pipe } from './src/offmark.ts';
 
 if (import.meta.main) {
 
-    const { main } = await import('./src/offmark.ts');
+    const { main } = await import('./offmark.ts');
 
     await main(Deno.stdin.readable, Deno.stdout.writable);
 
