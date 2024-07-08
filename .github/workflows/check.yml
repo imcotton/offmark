@@ -4,6 +4,7 @@ on: push
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   test:
@@ -38,5 +39,5 @@ jobs:
         uses: codecov/codecov-action@v4
         with:
           files: ./cov.lcov
-          token: ${{ secrets.CODECOV_TOKEN }}
+          use_oidc: true
 
