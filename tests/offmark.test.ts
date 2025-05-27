@@ -1,5 +1,5 @@
-import * as ast from 'jsr:@std/assert';
-import { toText } from 'jsr:@std/streams';
+import * as ast from 'jsr:@std/assert@1';
+import { toText } from 'jsr:@std/streams@1';
 
 import {
 

@@ -3,6 +3,9 @@
   "lock": false,
   "name": "@imcotton/offmark",
   "version": "0.4.2",
+  "imports": {
+    "@std/streams": "jsr:@std/streams@1"
+  },
   "exports": "./mod.ts",
   "publish": {
     "exclude": [
