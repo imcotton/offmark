@@ -8,6 +8,14 @@
   },
   "exports": "./mod.ts",
   "publish": {
+    "include": [
+      "deno.json",
+      "LICENSE.txt",
+      "README.md",
+      "./tests",
+      "./offmark.ts",
+      "./mod.ts"
+    ],
     "exclude": [
       "./.github",
       ".editorconfig",
