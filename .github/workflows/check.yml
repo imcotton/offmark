@@ -27,9 +27,7 @@ jobs:
           [[ "$(deno run mod.ts < tests/sample.ts.md | deno run -)" == "10" ]] && echo ok
 
       - name: Run tests
-        run: |-
-          deno test -A --quiet --coverage
-          deno coverage --lcov --output=cov.lcov
+        run: deno test -A --quiet --coverage
 
       - name: Run publish --dry-run
         run: deno publish --dry-run --allow-dirty
@@ -37,6 +35,6 @@ jobs:
       - name: Run codecov
         uses: codecov/codecov-action@18283e04ce6e62d37312384ff67231eb8fd56d24 # v5.4.3
         with:
-          files: ./cov.lcov
+          files: ./coverage/lcov.info
           use_oidc: true
 
