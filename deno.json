@@ -3,6 +3,7 @@
   "lock": false,
   "name": "@imcotton/offmark",
   "version": "0.4.2",
+  "license": "MIT",
   "imports": {
     "@std/streams": "jsr:@std/streams@1"
   },
