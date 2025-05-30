@@ -1,0 +1,35 @@
+{
+  "name": "offmark",
+  "version": "0.0.0-VERSION",
+  "description": "Trim off markdown notes, left by its coding blocks",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/imcotton/offmark.git",
+    "type": "git"
+  },
+  "bin": "./dist/bin.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "./dist/offmark.js",
+    "./dist/index.js",
+    "./dist/bin.js"
+  ],
+  "dependencies": {
+    "@std/streams": "npm:@jsr/std__streams@1"
+  },
+  "bundleDependencies": [
+    "@std/streams"
+  ],
+  "devDependencies": {
+    "@types/deno": "2.3.0",
+    "@types/node": "18.19.80",
+    "typescript": "5.8.3"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  }
+}
