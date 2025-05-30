@@ -7,16 +7,14 @@
   "imports": {
     "@std/streams": "jsr:@std/streams@1"
   },
-  "exports": "./mod.ts",
+  "exports": "./src/mod.ts",
   "publish": {
     "include": [
       "deno.json",
       "LICENSE.txt",
       "README.md",
       "./tests",
-      "./offmark.ts",
-      "./index.ts",
-      "./mod.ts"
+      "./src"
     ],
     "exclude": [
       "./.github",
