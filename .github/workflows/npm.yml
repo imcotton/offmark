@@ -1,0 +1,58 @@
+name: Publish npm
+
+on:
+  push:
+    tags:
+      - v/*
+
+jobs:
+
+  publish:
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: v22
+          registry-url: https://registry.npmjs.org/
+
+      - name: Prebuild
+        run: |-
+
+          VER=$(jq -r '.version' deno.json)
+
+          cat tmp-package.json | sed "s/0.0.0-VERSION/$VER/" > package.json
+
+          npm install --no-{fund,save,lock}
+
+      - name: Build by tsc
+        run: npx tsc ./*.ts
+                     --strict
+                     --outDir ./dist
+                     --target es2022
+                     --module es2022
+                     --moduleResolution bundler
+                     --allowImportingTsExtensions
+                     --rewriteRelativeImportExtensions
+
+      - name: Publish to npm (next)
+        if: contains(github.ref_name, '-') == true
+        run: npm publish --access=public --provenance --tag=next
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      - name: Publish to npm (latest)
+        if: contains(github.ref_name, '-') == false
+        run: npm publish --access=public --provenance --tag=latest
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
