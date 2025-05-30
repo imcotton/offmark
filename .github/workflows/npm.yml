@@ -35,7 +35,7 @@ jobs:
           npm install --no-{fund,save,lock}
 
       - name: Build by tsc
-        run: npx tsc ./*.ts
+        run: npx tsc ./src/*.ts
                      --strict
                      --outDir ./dist
                      --target es2022
