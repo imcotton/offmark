@@ -3,7 +3,7 @@
 import { stdin, stdout } from 'node:process';
 import { Readable, Writable } from 'node:stream';
 
-import { main } from './offmark.ts';
+import { main } from './index.ts';
 
 
 

@@ -1,2 +1,2 @@
-export { OffmarkStream, pipe } from './offmark.ts';
+export * from './offmark.ts';
 
