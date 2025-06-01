@@ -8,6 +8,9 @@
     "@std/streams": "jsr:@std/streams@1"
   },
   "exports": "./src/mod.ts",
+  "tasks": {
+    "build-npm": "./tools/build-npm.ts"
+  },
   "publish": {
     "include": [
       "deno.json",
