@@ -13,6 +13,7 @@
       "deno.json",
       "LICENSE.txt",
       "README.md",
+      "./tools",
       "./tests",
       "./src"
     ],
