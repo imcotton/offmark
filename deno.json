@@ -11,6 +11,15 @@
   "tasks": {
     "build-npm": "./tools/build-npm.ts"
   },
+  "compilerOptions": {
+    "exactOptionalPropertyTypes": true,
+    "erasableSyntaxOnly": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "strict": true
+  },
   "publish": {
     "include": [
       "deno.json",
