@@ -34,6 +34,22 @@ Deno.test('pipe on sample.ts.md', async function () {
 
 
 
+Deno.test('pipe on sample.ts.md with gap', async function () {
+
+    using file = await Deno.open('./tests/sample.ts.md', { read: true });
+
+    const text = await toText(pipe(file.readable, { gap: true }));
+
+    const count = text.split('\n').length;
+
+    ast.assertEquals(count, 19);
+
+});
+
+
+
+
+
 Deno.test('custom options of OffmarkStream', async function () {
 
     const stream = ReadableStream.from([
