@@ -1,6 +1,6 @@
 import * as ast from 'jsr:@std/assert@1';
 import { dedent } from 'jsr:@std/text@^1.0.14/unstable-dedent';
-import { toText } from "@std/streams";
+import { toText } from '@std/streams';
 
 import {
 
