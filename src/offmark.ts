@@ -22,6 +22,8 @@ const DEFAULT: {
         remove (str: string): string,
     },
 
+    gap: boolean,
+
 } = {
 
     toggle: str => str.startsWith(TOGGLE),
@@ -30,6 +32,8 @@ const DEFAULT: {
         check: str => str.startsWith(INDENT),
         remove: str => str.slice(INDENT_LEN),
     },
+
+    gap: false,
 
 };
 
@@ -41,7 +45,9 @@ export class OffmarkStream extends TransformStream<string, string> {
 
     constructor (opts?: Opts) {
 
-        const { toggle, indent } = { ...DEFAULT, ...opts };
+        const { toggle, indent, gap } = { ...DEFAULT, ...opts };
+
+        const skip = retain(gap);
 
         let on = false;
 
@@ -51,7 +57,7 @@ export class OffmarkStream extends TransformStream<string, string> {
 
                 if (toggle(data, on)) {
                     on = !on;
-                    return;
+                    return skip(ctrl);
                 }
 
                 if (on) {
@@ -62,11 +68,29 @@ export class OffmarkStream extends TransformStream<string, string> {
                     return ctrl.enqueue(indent.remove(data));
                 }
 
+                skip(ctrl);
+
             },
 
         });
 
     }
+
+}
+
+
+
+
+
+function retain (gap: boolean) {
+
+    return function (ctrl: TransformStreamDefaultController<string>) {
+
+        if (gap === true) {
+            ctrl.enqueue('');
+        }
+
+    };
 
 }
 
