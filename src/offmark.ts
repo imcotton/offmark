@@ -1,5 +1,7 @@
 import { TextLineStream } from '@std/streams/text-line-stream';
 
+import { LineJoinStream } from './line-join.ts';
+
 
 
 
@@ -83,11 +85,7 @@ export function pipe (
         .pipeThrough(new TextDecoderStream())
         .pipeThrough(new TextLineStream())
         .pipeThrough(new OffmarkStream(opts))
-        .pipeThrough(new TransformStream({
-            transform (data, ctrl) {
-                ctrl.enqueue(data.concat('\n'));
-            },
-        }))
+        .pipeThrough(new LineJoinStream('\n'))
         .pipeThrough(new TextEncoderStream())
     ;
 
