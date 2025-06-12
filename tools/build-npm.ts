@@ -20,6 +20,7 @@ async function main () {
 
         entryPoints: [
             './src/index.ts',
+            './src/utils.ts',
         ],
         outdir: './dist',
         bundle: true,
