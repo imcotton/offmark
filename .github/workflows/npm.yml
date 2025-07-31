@@ -37,9 +37,9 @@ jobs:
 
       - name: Publish to npm (next)
         if: contains(github.ref_name, '-') == true
-        run: npm publish --access=public --provenance --tag=next
+        run: npm publish --access=public --tag=next
 
       - name: Publish to npm (latest)
         if: contains(github.ref_name, '-') == false
-        run: npm publish --access=public --provenance --tag=latest
+        run: npm publish --access=public --tag=latest
 
