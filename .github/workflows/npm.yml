@@ -32,6 +32,9 @@ jobs:
           node-version: v22
           registry-url: https://registry.npmjs.org/
 
+      - name: Update npm
+        run: npm install --no-fund -g npm@11.5
+
       - name: Publish to npm (next)
         if: contains(github.ref_name, '-') == true
         run: npm publish --access=public --provenance --tag=next
